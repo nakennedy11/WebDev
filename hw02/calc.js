@@ -29,6 +29,18 @@
 		}
 
 		else if (id == ".") {
+			if (arith.finished == 0) {
+				// if the first number is empty, make . entry 0.
+				if (arith.first == "") {
+					ans.value = "0.";
+				}
+				
+			}
+			else {
+				ans.value = "0";
+				arith.finished = 0;
+			}
+
 			ans.value = ans.value + ".";
 		}
 
@@ -47,6 +59,13 @@
 				}
 				else {
 					// else it is an operator
+					// if the operator is not empty, do the calc first
+					if (arith.op != "") {
+						result = doCalc();
+						ans.value = result;
+						arith.finished = 1;
+					}
+
 					arith.op = id;
 				}
 			}
