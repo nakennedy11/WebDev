@@ -51,10 +51,13 @@
 				// empty answer box
 				ans.value = "";
 				// if the +/= is an equals...
-				if (id == "+" && arith.sec != "") {
+				if (id == "+" && arith.sec != "" && arith.first != "") {
 					// do the calculations, display it
 					result = doCalc();
-					ans.value = result;
+					if (!isNaN(result)) {
+						ans.value = result;
+					}
+					
 					arith.finished = 1;
 				}
 				else {
@@ -71,7 +74,6 @@
 			}
 
 		}
-
 
 
 		number = parseFloat(ans.value);
