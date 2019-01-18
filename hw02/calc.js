@@ -37,6 +37,7 @@
 				
 			}
 			else {
+				// if a calculation is done, want to empty result and start with 0.
 				ans.value = "0";
 				arith.finished = 0;
 			}
@@ -54,6 +55,7 @@
 				if (id == "+" && arith.sec != "" && arith.first != "") {
 					// do the calculations, display it
 					result = doCalc();
+					// checks if the result of the calculation is a number
 					if (!isNaN(result)) {
 						ans.value = result;
 					}
